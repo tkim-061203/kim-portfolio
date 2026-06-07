@@ -1,4 +1,9 @@
-export const baseUrl = 'https://portfolio-blog-starter.vercel.app'
+const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1] ?? 'kim-portfolio'
+const ownerName = process.env.GITHUB_REPOSITORY_OWNER ?? 'MnTrinfs'
+const isUserOrOrgSite = repoName.endsWith('.github.io')
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? (isUserOrOrgSite ? '' : `/${repoName}`)
+
+export const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? `https://${ownerName.toLowerCase()}.github.io${basePath}`
 
 export default async function sitemap() {
   let routes = [''].map((route) => ({

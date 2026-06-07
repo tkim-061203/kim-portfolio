@@ -4,11 +4,12 @@ import Experience from "./components/Experience"
 import Skills from "./components/Skills"
 
 export default function HomePage() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
   const links = [
     { href: "mailto:nntkim.work@gmail.com", icon: Mail, label: "Email" },
     { href: "https://github.com/tkim-061203", icon: Github, label: "GitHub" },
     { href: "https://www.linkedin.com/in/nntkim061203", icon: Linkedin, label: "LinkedIn" },
-    { href: "/CV_en.pdf", icon: FileText, label: "CV" },
+    { href: `${basePath}/CV_en.pdf`, icon: FileText, label: "CV" },
   ]
 
   return (
@@ -16,7 +17,7 @@ export default function HomePage() {
       <aside className="profile-sidebar lg:sticky lg:top-8 lg:self-start">
         <div className="profile-inner flex flex-col items-center text-center lg:items-start lg:text-left">
           <Image
-            src="/img/portrait.jpg"
+            src={`${basePath}/img/portrait.jpg`}
             alt="Ngoc Thien Kim Nguyen"
             className="profile-photo h-40 w-40 rounded-full object-cover"
             style={{

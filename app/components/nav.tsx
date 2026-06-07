@@ -6,7 +6,7 @@ const navItems = [
   { href: '#publications', name: 'Publications' },
   { href: '#education', name: 'Education' },
   { href: '#skills', name: 'Skills' },
-  { href: '/CV_en.pdf', name: 'CV', external: true },
+  { href: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ''}/CV_en.pdf`, name: 'CV', external: true },
 ]
 
 export function Navbar() {

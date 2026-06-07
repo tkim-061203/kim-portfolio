@@ -2,7 +2,6 @@ import './global.css'
 import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
-import { Lora } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Navbar } from './components/nav'
@@ -10,11 +9,7 @@ import Footer from './components/footer'
 import { ThemeProvider } from './components/theme-provider'
 import { baseUrl } from './sitemap'
 
-const lora = Lora({
-  subsets: ['vietnamese', 'latin'],
-  display: 'swap',
-  variable: '--font-lora',
-})
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -25,13 +20,13 @@ export const metadata: Metadata = {
   description: 'Ngoc Thien Kim Nguyen - AI Engineer researching applied LLMs at the intersection of AI and hardware.',
   icons: {
     icon: [
-      { url: '/favicon.png?v=2', sizes: '512x512', type: 'image/png' },
+      { url: `${basePath}/favicon.png?v=2`, sizes: '512x512', type: 'image/png' },
     ],
     shortcut: [
-      { url: '/favicon.png?v=2', type: 'image/png' },
+      { url: `${basePath}/favicon.png?v=2`, type: 'image/png' },
     ],
     apple: [
-      { url: '/apple-touch-icon.png?v=2', sizes: '180x180', type: 'image/png' },
+      { url: `${basePath}/apple-touch-icon.png?v=2`, sizes: '180x180', type: 'image/png' },
     ],
   },
   openGraph: {
@@ -339,7 +334,6 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
       className={cx(
-        lora.variable,
         GeistSans.variable,
         GeistMono.variable
       )}
