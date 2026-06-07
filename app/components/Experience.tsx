@@ -1,85 +1,160 @@
 export default function Experience() {
-  const items = [
+  const featuredResearch = {
+    title: "REFINE-VerilogV2 - Dual-SLM Framework for Verilog Generation",
+    role: "First-author research, graduation thesis",
+    range: "2025 - Present",
+    highlights: [
+      "Fine-tuned Qwen2.5-Coder-7B with LoRA (rank=2048, bfloat16, 4096-context) into Generator SLM and Debugger SLM role-separated adapters on dual NVIDIA RTX 5880 Ada GPUs using Hugging Face PEFT and Transformers.",
+      "Built a LangGraph runtime with Generator, Sanitizer, and Correcter stages that routes Verilator, Icarus, and UVM diagnostics back to the Debugger via Topmost Exception Debugging and an Exception-Debugging Trial Manager (EDTM).",
+      "Curated the 690K-module Pyranet corpus using Yosys-based capacity-aware filtering by cell count and cell-type diversity, removing manual per-tier loss weighting.",
+      "Built an end-to-end evaluation pipeline across VerilogEval V2 (156 modules) and RTLLM v1.1 (29 designs), tracking syntax and functional pass@k, EDA toolchain success, per-class failure modes, and TED iteration cost.",
+      "Achieved 100% syntax pass@5 and 66.9% functional pass@5 on RTLLM v1.1; resolved 18/18 initial compile faults across 29 designs (+6.9 points over prior REFINE-Verilog).",
+    ],
+    stack: "Python, PyTorch, Hugging Face PEFT/Transformers, LoRA, LangGraph, Verilator, Icarus Verilog, Yosys, UVM",
+  }
+
+  const researchExperience = [
     {
-      range: "October 2021 – October 2026",
-      title: "Ho Chi Minh City University of Science (VNU-HCMUS)",
-      subtitle: "Electronics & Telecommunications major (GPA: 8.4)",
-    },
-    {
-      range: "April 2023 – Now",
-      title:
-        "DESLab Laboratories – Faculty of Electronics and Telecommunications (VNU-HCMUS)",
-      subtitle: "Undergraduate Student Researcher",
-    },
-    {
-      range: "April 2025 – September 2025",
-      title: "The University of Electro-Communications",
-      subtitle: "Short-term Exchange Study Program JUSST",
+      range: "Apr 2023 - Present",
+      title: "Undergraduate Researcher, DESLab Laboratory, University of Science (VNUHCM)",
       description: [
-        "Fully funded by the JASSO scholarship.",
-        "Courses: Japanese Language, science & engineering courses, academic skills, lab work.",
+        "Built a quadruped robot end-to-end: 3D-printed hardware, motor control with STM32/ESP32, and PCB design for motor drivers.",
+        "Designed and laid out analog ICs (Inverter, NAND, NOR, XOR, SRAM, Full Adder) with pre/post-layout simulation in Cadence Virtuoso.",
       ],
     },
-  ];
+  ]
+
+  const education = [
+    {
+      range: "Sep 2021 - Sep 2026",
+      title: "B.Eng. Electronics & Telecommunications",
+      subtitle: "VNUHCM University of Science",
+    },
+    {
+      range: "Apr 2025 - Sep 2025",
+      title: "JUSST Exchange",
+      subtitle: "University of Electro-Communications, Japan",
+    },
+  ]
+
+  const publications = [
+    {
+      title: "REFINE-VerilogV2: Enhancement in Partial Verilog Generation Leveraging Small Language Model in Combination with EDA Debugging",
+      authors: ["N.-T.-K. Nguyen", "V.-M.-T. Nguyen", "C.-K. Pham", "D.-H. Le"],
+      venue: "Under review",
+      year: "2026",
+      note: "first author",
+    },
+    {
+      title: "REFINE-Verilog: Reliability-based fine-tuning and inference enhancement for SLM in partial Verilog generation",
+      authors: ["V.-M.-T. Nguyen", "N.-T.-K. Nguyen", "D.-H. Le"],
+      venue: "Int. Conf. on Information and Communication Technology (ICICT)",
+      year: "2026",
+    },
+    {
+      title: "COMBA-PROMPT: Comprehensive benchmark and augmentation for Verilog generation leveraging dual-LLM prompting",
+      authors: ["V.-M.-T. Nguyen", "N.-T.-K. Nguyen", "D.-H. Le"],
+      venue: "Int. Conf. on Multimedia, Computing and Technology for Sustainable Development (MCT4SD)",
+      year: "2025",
+    },
+  ]
 
   return (
-    <section id="experience" className="flex flex-col gap-6 scroll-mt-20">
-      {/* Heading */}
-      <h2 className="font-serif text-2xl font-bold text-zinc-900 dark:text-zinc-50 border-b border-zinc-200 dark:border-zinc-800 pb-2">
-        Education & Experience
-      </h2>
+    <>
+      <section id="experience" className="academic-section scroll-mt-20">
+        <h2 className="academic-heading">Research & Experience</h2>
 
-      {/* Timeline */}
-      <ol
-        role="list"
-        className="
-          relative pl-6 sm:pl-8 mt-2
-          before:absolute before:left-0 before:top-2 before:h-[95%] before:w-px
-          before:bg-gradient-to-b before:from-zinc-200 before:to-zinc-200/20 
-          dark:before:from-zinc-800 dark:before:to-zinc-800/10
-        "
-      >
-        {items.map((it, i) => (
-          <li key={i} className="relative mb-8 last:mb-2 pl-6 group">
-            {/* Interactive styled dot centered on the line */}
-            <span
-              aria-hidden
-              className="
-                absolute left-0 top-2.5 h-3.5 w-3.5 -translate-x-1/2 rounded-full
-                border-2 border-zinc-900 dark:border-zinc-50 bg-white dark:bg-zinc-900
-                flex items-center justify-center
-                group-hover:border-emerald-500 dark:group-hover:border-emerald-400 transition-colors duration-300
-              "
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-zinc-900 dark:bg-zinc-50 group-hover:bg-emerald-500 dark:group-hover:bg-emerald-400 transition-colors duration-300" />
-            </span>
+        <div className="academic-list mt-5 space-y-5">
+          <article className="academic-entry">
+            <p className="academic-date font-sans text-xs font-bold uppercase tracking-wide" style={{ color: "var(--tertiary-text)" }}>
+              {featuredResearch.range}
+            </p>
+            <h3 className="academic-entry-title mt-1 font-sans text-lg font-bold leading-snug" style={{ color: "var(--heading)" }}>
+              {featuredResearch.title}
+            </h3>
+            <p className="academic-subtitle mt-1 text-sm" style={{ color: "var(--secondary-text)" }}>
+              {featuredResearch.role}
+            </p>
+            <ul className="academic-bullets mt-3 list-disc space-y-1 pl-5 text-[15px]" style={{ color: "var(--body-text)" }}>
+              {featuredResearch.highlights.map((highlight) => (
+                <li key={highlight}>{highlight}</li>
+              ))}
+            </ul>
+            <p className="academic-subtitle mt-3 text-sm" style={{ color: "var(--secondary-text)" }}>
+              <span className="font-bold" style={{ color: "var(--body-text)" }}>Stack:</span>{" "}
+              {featuredResearch.stack}
+            </p>
+          </article>
 
-            {/* content */}
-            <div className="flex flex-col">
-              <span className="font-sans text-[10px] font-extrabold uppercase tracking-widest text-zinc-400 dark:text-zinc-500 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-300">
-                {it.range}
-              </span>
-              <h3 className="font-serif text-lg font-bold text-zinc-900 dark:text-zinc-50 mt-1">
-                {it.title}
+          {researchExperience.map((item) => (
+            <article key={item.title} className="academic-entry">
+              <p className="academic-date font-sans text-xs font-bold uppercase tracking-wide" style={{ color: "var(--tertiary-text)" }}>
+                {item.range}
+              </p>
+              <h3 className="academic-entry-title mt-1 font-sans text-[17px] font-bold leading-snug" style={{ color: "var(--heading)" }}>
+                {item.title}
               </h3>
-              {it.subtitle && (
-                <p className="font-sans text-sm text-zinc-600 dark:text-zinc-400 mt-1">
-                  {it.subtitle}
-                </p>
-              )}
-              {it.description && (
-                <ul className="mt-2 list-disc pl-4 space-y-1">
-                  {it.description.map((desc, idx) => (
-                    <li key={idx} className="font-sans text-xs text-zinc-500 dark:text-zinc-400">
-                      {desc}
-                    </li>
+              {item.description && (
+                <ul className="academic-bullets mt-2 list-disc space-y-1 pl-5 text-[15px]" style={{ color: "var(--body-text)" }}>
+                  {item.description.map((desc) => (
+                    <li key={desc}>{desc}</li>
                   ))}
                 </ul>
               )}
-            </div>
-          </li>
-        ))}
-      </ol>
-    </section>
-  );
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="publications" className="academic-section scroll-mt-20">
+        <h2 className="academic-heading">Publications</h2>
+
+        <div className="academic-list mt-5 space-y-5">
+          {publications.map((publication) => (
+            <article key={publication.title} className="academic-entry">
+              <h3 className="academic-entry-title academic-publication-title font-sans text-[17px] font-bold leading-snug" style={{ color: "var(--link)" }}>
+                {publication.title}
+              </h3>
+              <p className="academic-subtitle mt-2 text-sm leading-relaxed" style={{ color: "var(--secondary-text)" }}>
+                {publication.authors.map((author, index) => (
+                  <span key={author}>
+                    {author === "N.-T.-K. Nguyen" ? (
+                      <span className="underline underline-offset-2">{author}</span>
+                    ) : (
+                      author
+                    )}
+                    {index < publication.authors.length - 1 ? ", " : ""}
+                  </span>
+                ))}
+              </p>
+              <p className="academic-subtitle mt-1 text-sm leading-relaxed" style={{ color: "var(--body-text)" }}>
+                {publication.venue}, {publication.year}
+                {publication.note ? ` (${publication.note})` : ""}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="education" className="academic-section scroll-mt-20">
+        <h2 className="academic-heading">Education</h2>
+
+        <div className="academic-list mt-5 space-y-5">
+          {education.map((item) => (
+            <article key={item.title} className="academic-entry">
+              <p className="academic-date font-sans text-xs font-bold uppercase tracking-wide" style={{ color: "var(--tertiary-text)" }}>
+                {item.range}
+              </p>
+              <h3 className="academic-entry-title mt-1 font-sans text-[17px] font-bold leading-snug" style={{ color: "var(--heading)" }}>
+                {item.title}
+              </h3>
+              <p className="academic-subtitle mt-1 text-sm" style={{ color: "var(--secondary-text)" }}>
+                {item.subtitle}
+              </p>
+            </article>
+          ))}
+        </div>
+      </section>
+    </>
+  )
 }
